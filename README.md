@@ -1,2 +1,2 @@
 # Learning
-Repository for learning code and .git
+Repository for learning python and .git
