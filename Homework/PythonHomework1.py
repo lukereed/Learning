@@ -25,3 +25,25 @@ wind_speed = WS2 * (DH / MH2) ^ shear_exponent
 
 """
 
+# Luke Reed
+# PythonHomework1.py
+# 01/16/2015
+# A script to calculate wind speed at a specified height
+
+# import necessary libraries
+import sys
+import math
+
+# define inputs
+script, MH1, WS1, MH2, WS2, DH = sys.argv
+
+# begin function
+def windspeed(MH1, WS1, MH2, WS2, DH):
+	print "type MH1: ", type(MH1)
+	#shear_exp = math.log(WS1 / WS2) / math.log(MH1 / MH2)
+	#shear_exp = MH1 + MH2 + WS1 + WS2 + DH 
+	#wind_speed = WS2 * (DH / MH2) ** shear_exp
+	#wind_speed = shear_exp/2
+	#print "The wind speed at %f is %fm/s" % (DH, wind_speed)
+
+windspeed(MH1, WS1, MH2, WS2, DH)
