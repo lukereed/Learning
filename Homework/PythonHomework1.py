@@ -38,12 +38,25 @@ import math
 script, MH1, WS1, MH2, WS2, DH = sys.argv
 
 # begin function
-def windspeed(MH1, WS1, MH2, WS2, DH):
-	print "type MH1: ", type(MH1)
-	#shear_exp = math.log(WS1 / WS2) / math.log(MH1 / MH2)
-	#shear_exp = MH1 + MH2 + WS1 + WS2 + DH 
-	#wind_speed = WS2 * (DH / MH2) ** shear_exp
-	#wind_speed = shear_exp/2
-	#print "The wind speed at %f is %fm/s" % (DH, wind_speed)
+def shear_calc(MH1, WS1, MH2, WS2, DH):
+	# first make sure all variables are floats not integers
+	MH1 = float(MH1)
+	WS1 = float(WS1)
+	MH2 = float(MH2)
+	WS2 = float(WS2)
+	DH  = float(DH)
+	# now we can determine our shear exponent and wind speed
+	shear_exp = math.log(WS1 / WS2) / math.log(MH1 / MH2)
+	wind_speed = WS2 * (DH / MH2) ** shear_exp
+	# return the wind speed value
+	return wind_speed
 
-windspeed(MH1, WS1, MH2, WS2, DH)
+# call the funciton and save out the returned value
+wind_speed = shear_calc(MH1, WS1, MH2, WS2, DH)
+
+# now print out the desired result
+print "The wind speed at %sm is %rm/s" % (DH,wind_speed)
+
+# QUESTIONS
+# Why does sys.argv automatically input information as strings?
+
