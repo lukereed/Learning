@@ -1,5 +1,6 @@
 """
 Homework for 1/6/2016
+TEST TEST TEST
 
 Create a python script which will calculate the
 wind speed at a specified height with the inputs:
