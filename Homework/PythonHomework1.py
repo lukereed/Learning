@@ -52,7 +52,7 @@ def shear_calc(MH1, WS1, MH2, WS2, DH):
 	# return the wind speed value
 	return wind_speed
 
-# call the funciton and save out the returned value
+# call the function and save out the returned value
 wind_speed = shear_calc(MH1, WS1, MH2, WS2, DH)
 
 # now print out the desired result
