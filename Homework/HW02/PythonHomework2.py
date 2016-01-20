@@ -48,16 +48,16 @@ infile = open(sys.argv[1],'rb')	# opens the csv file
 
 # save the results of the .csv to a variable
 reader = csv.reader(infile)
-firstline = True	# boolean variable to skip headers
 
 # initialize variables
-SiteNumber80  = -999
-SiteNumber100 = -999
-SiteNumber120 = -999
-windSpeed80   = -999
-windSpeed100  = -999
-windSpeed120  = -999
+DH = [80,100,120]
+DH_len = len(DH)	# records the length of DH
+SiteNumber = [-9999] * DH_len
+windSpeed  = [-9999] * DH_len
+tempspeed  = [-9999] * DH_len
+
 # now loop through each line
+firstline = True	# boolean variable to skip first line
 for row in reader:
 	if firstline:
 		firstline = False	# turn off header variable
@@ -68,27 +68,21 @@ for row in reader:
 		MH2 = row[3]
 		WS2 = row[4]
 
-		tempspeed_80  = shear_calc(MH1,WS1,MH2,WS2,80)
-		tempspeed_100 = shear_calc(MH1,WS1,MH2,WS2,100)
-		tempspeed_120 = shear_calc(MH1,WS1,MH2,WS2,120)
+		# loop through each of the DH values
+		for ii in range(0,DH_len):
+			# for each DH value, compute the shear calc
+			tempspeed[ii]  = shear_calc(MH1,WS1,MH2,WS2,DH[ii])
+			# now check to see if it is the highest windspeed
+			# if so, save the speed and site number
+			if tempspeed[ii] > windSpeed[ii]:
+				windSpeed[ii]  = tempspeed[ii]
+				SiteNumber[ii] = ID
 
-		# now check to see if it is the highest windspeed
-		if tempspeed_80 > windSpeed80:
-			windSpeed80  = tempspeed_80
-			SiteNumber80 = ID
-		if tempspeed_100 > windSpeed100:
-			windSpeed100  = tempspeed_100
-			SiteNumber100 = ID
-		if tempspeed_120 > windSpeed80:
-			windSpeed120  = tempspeed_120
-			SiteNumber120 = ID
-		
 # now create the file that we will write to
 outfile = csv.writer(open('wind_summary.csv', 'wb'))
 outfile.writerow(['DesiredHeight','windiestSiteNumber','windSpeed'])
-outfile.writerow([80, SiteNumber80, windSpeed80])
-outfile.writerow([100,SiteNumber100,windSpeed100])
-outfile.writerow([120,SiteNumber120,windSpeed120])
-
+# Loop through the number of DH values and write each to a row
+for i in range(0,DH_len):
+	outfile.writerow([DH[i], SiteNumber[i], windSpeed[i]])
 # save and close the file
 infile.close()
