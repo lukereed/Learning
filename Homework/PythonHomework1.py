@@ -46,17 +46,18 @@ def shear_calc(MH1, WS1, MH2, WS2, DH):
 	WS2 = float(WS2)
 	DH  = float(DH)
 	# now we can determine our shear exponent and wind speed
+	# ln = math.log and log_{10} = math.log10
 	shear_exp = math.log(WS1 / WS2) / math.log(MH1 / MH2)
 	wind_speed = WS2 * (DH / MH2) ** shear_exp
 	# return the wind speed value
 	return wind_speed
 
-# call the funciton and save out the returned value
+# call the function and save out the returned value
 wind_speed = shear_calc(MH1, WS1, MH2, WS2, DH)
 
 # now print out the desired result
+# alternatively we could put this print statement in the function and skip the return
 print "The wind speed at %sm is %rm/s" % (DH,wind_speed)
 
 # QUESTIONS
 # Why does sys.argv automatically input information as strings?
-
