@@ -21,7 +21,7 @@ raw_input("?")
 
 # open the file in writing mode
 print "Opening the file..."
-target = open(filename, 'w')
+target = open(filename, 'w')	# 'w' opens it in writing mode
 
 # truncate the file (erase)
 print "Truncating the file. Goodbye!"
@@ -36,6 +36,7 @@ line3 = raw_input("line 3: ")
 print "I'm going to write these to the file."
 
 # write the three different lines to the file on a new line each time
+# target is the object that is being written to
 target.write(line1)
 target.write("\n")
 target.write(line2)
