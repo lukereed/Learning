@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Luke Reed
 # ex06.py
 # 01/07/2016

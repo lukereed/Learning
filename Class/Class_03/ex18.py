@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Luke Reed
 # ex18.py
 # 01/21/2016

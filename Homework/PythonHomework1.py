@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 """
 Homework for 1/6/2016
 

@@ -1,4 +1,5 @@
-@@ -0,0 +1,94 @@
+#!/usr/bin/python
+
 """
 Homework #2
 

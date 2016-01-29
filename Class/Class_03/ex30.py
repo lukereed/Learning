@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Luke Reed
 # ex30.py
 # Else and If

@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # Luke Reed
 # ex03.py
 # 01/07/2016
