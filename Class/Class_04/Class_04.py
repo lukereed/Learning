@@ -320,6 +320,7 @@ for k,v in di.iteritems():
 # List 7   TUPLE ?    DICTIONARY ?
 # a list would require every element to be input
 # instead let's use a dictionary
+''' NEED TO SEE FILE FROM INSTRUCTOR FOR DETAILS
 di = {1:'I',4:'IV',5:'V',9:'IX',10:'X',40:'XL',50:'L',90:'XC',100:'C',400:'CD',500:'D',900:'CM',1000:'M'}
 def to_roman(year):		# year is 1999
 	result = ""
@@ -340,6 +341,7 @@ to_roman(1999)
 def to_roman(year):
 	result = ""
 
+
 # lists and splitting
 li = 'apple banana cherry date'.split()
 li 		#['apple', 'banana', 'cherry', 'date']
@@ -347,7 +349,7 @@ li 		#['apple', 'banana', 'cherry', 'date']
 arabic_to_roman = 
 roman = dict([(int(k),v) for k,v in [e.split(':') for e in arabic_to_roman.split(',')]])
 arabic = dict([v,int(k)) for k,v in [e.split(':') for e in arabic_to_roman.split(',')]])
-
+'''
 
 # SLICING
 # A powerful way to get portions of a list
