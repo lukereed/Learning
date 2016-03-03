@@ -1,0 +1,525 @@
+Python 2.7.10 (v2.7.10:15c95b7d81dc, May 23 2015, 09:33:12) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> 
+>>> s = 'hello, world!'
+>>> print(s)
+hello, world!
+>>> 
+>>> s = "hello, world!"
+>>> print(s)
+hello, world!
+>>> 
+>>> s = "I'm not sure I should say 'Hello, world!', or just say nothing at all"
+>>> print(s)
+I'm not sure I should say 'Hello, world!', or just say nothing at all
+>>> 
+>>> s = 'I\'m not sure I should say "Hello, world!", or just say nothing at all'
+>>> print(s)
+I'm not sure I should say "Hello, world!", or just say nothing at all
+>>> 
+>>> # summary, strings can be delimited by one or two quotes
+>>> 
+>>> s_multiline = """You can even have multi-line strings,
+that go on and on and on,
+down from the door where it began...
+"""
+>>> print(s_multiline)
+You can even have multi-line strings,
+that go on and on and on,
+down from the door where it began...
+
+>>> # multiline strings are commonly used to document methods
+>>> def square(x):
+	"""returns the square of x, assuming x is numeric"""
+	return x * x
+
+>>> square(3)
+9
+>>> # and you probably noticed by now that # marks a line as a comment
+>>> 
+>>> 
+>>> 
+>>> # commonly used built-in functions in Python include...
+>>> len('one two three')   # the length of a string
+13
+>>> len(['one', 'two', 'three'])   # the length of a list
+3
+>>> len([1, 2, 3, 4, 5])   # the length of a numeric list
+5
+>>> 
+>>> type('one two')
+<type 'str'>
+>>> type('one two')   # the type of a string
+<type 'str'>
+>>> type(12.5)   # the type of an int
+<type 'float'>
+>>> type(12)     # the type of an int
+<type 'int'>
+>>> type(2.718281)   # the type of a float
+<type 'float'>
+>>> 
+>>> 
+>>> x = 12
+>>> y = 12
+>>> id(x)
+4298161760
+>>> id(y)
+4298161760
+>>> id(x) == id(y)
+True
+>>> 
+>>> s = 'one two'
+>>> s_caps = s.upper()
+>>> id(s)
+4382250976
+>>> id(s_caps)
+4380344112
+>>> id(s) == id(s_caps)
+False
+>>> 
+>>> 
+>>> 
+>>> # and don't forget dir
+>>> dir('one two')
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '_formatter_field_name_split', '_formatter_parser', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> # wow! you can do a lot with a str
+>>> 
+>>> 
+>>> dir(12)
+['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__', '__delattr__', '__div__', '__divmod__', '__doc__', '__float__', '__floordiv__', '__format__', '__getattribute__', '__getnewargs__', '__hash__', '__hex__', '__index__', '__init__', '__int__', '__invert__', '__long__', '__lshift__', '__mod__', '__mul__', '__neg__', '__new__', '__nonzero__', '__oct__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdiv__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+>>> # wow! and a lot with an int, too!
+>>> 
+>>> dir(['one', 'two', 'three'])
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__setslice__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> # but not so much with a list
+>>> 
+>>> # let's make a new function, dirpub, that will show only the public methods of an object
+>>> 
+>>> def dirpub(atype):
+	"""Shows only the public methods of a type"""
+	return [el for el in dir(atype) if not el.startswith('_') and not el.endswith('_')]
+
+>>> 
+>>> # now let's try finding dirpub of a str, an int, and a list
+>>> dirpub('one two three')
+['capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+>>> 
+>>> dirpub(12)
+['bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+>>> 
+>>> dirpub(['one', 'two',, 'three', 'four'])
+SyntaxError: invalid syntax
+>>> dirpub(['one', 'two', 'three', 'four'])
+['append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> 
+>>> 
+>>> # what about all of the rest of those methods?
+>>> # we'll talk about those in Thursday's class on OOProgramming
+>>> 
+>>> 
+>>> 
+>>> # looking at a list, you can append, count, extend, index, insert, pop, remove, reverse, and sort it
+>>> # append (add to the end of the list)
+>>> # count (count how many of a given object are in the list)
+>>> # extend (add the contents of another list to this list, one by one)
+>>> #    note, if you append one list to another, the whole list will be
+>>> #    added
+>>> # index (find the index number of an object IF it is in the list -- raise an exception otherwise)
+>>> # insert (insert an object in front of the specified index, if it exists, otherwise...)
+>>> # pop (pop the item at the given index off the list -- if no index is specified, pop the last item off,
+>>> #      will raise an error if not valid index is specified)
+>>> # remove (remove the given object from the list IF it is in the list, otherwise...)
+>>> # reverse (reverses the given list in place)
+>>> # sort (sorts the given list in place)
+>>> 
+>>> li = []    # empty list
+>>> for el in ['one', 'seven', 'four']:
+	li.append(el)
+>>> print(li)
+['one', 'seven', 'four']
+>>> 
+>>> 
+>>> >>> li.append('four')
+>>> li.append('four')
+>>> li
+['one', 'seven', 'four', 'four', 'four']
+>>> li.count('four')
+3
+>>> li.count('nineteen')    # this code will fail
+0
+>>> li_2 = [1, 3, 5, 7]
+>>> li.append(li_2)
+>>> li
+['one', 'seven', 'four', 'four', 'four', [1, 3, 5, 7]]
+>>> 
+>>> 
+>>> li = 'one seven four four four'.split()
+>>> li
+['one', 'seven', 'four', 'four', 'four']
+>>> li.extend(li_2)
+>>> li
+['one', 'seven', 'four', 'four', 'four', 1, 3, 5, 7]
+>>> # see the difference between listone.append(listtwo) and
+>>> #    listone.extend(listtwo) ?
+>>> 
+>>> li.index('seven')
+1
+>>> li.index('seventeen')   # this will not work
+
+Traceback (most recent call last):
+  File "<pyshell#132>", line 1, in <module>
+    li.index('seventeen')   # this will not work
+ValueError: 'seventeen' is not in list
+>>> 
+>>> 
+>>> li.pop()
+7
+>>> li
+['one', 'seven', 'four', 'four', 'four', 1, 3, 5]
+>>> li.pop()
+5
+>>> li
+['one', 'seven', 'four', 'four', 'four', 1, 3]
+>>> li.pop()
+3
+>>> li
+['one', 'seven', 'four', 'four', 'four', 1]
+>>> li.pop(1)
+'seven'
+>>> 
+>>> li.remove('one')
+>>> li
+['four', 'four', 'four', 1]
+>>> 
+>>> li = [2, 7, 1, 8, 1, 8, 2, 8]
+>>> li.sort()
+>>> li
+[1, 1, 2, 2, 7, 8, 8, 8]
+>>> li.reverse()
+>>> li
+[8, 8, 8, 7, 2, 2, 1, 1]
+>>> 
+>>> 
+>>> # but note, that the built-in function sorted will return a new list,
+>>> #   and leave the original list untouched
+>>> li = '2 7 1 8 2 8'.split()
+>>> li
+['2', '7', '1', '8', '2', '8']
+>>> li_sorted = sorted(li)
+>>> li_sorted
+['1', '2', '2', '7', '8', '8']
+>>> li
+['2', '7', '1', '8', '2', '8']
+>>> 
+>>> 
+>>> 
+>>> # we can create lists literally
+>>> li = ['a', 'literal', 'list', 'of', 'strings']
+>>> li
+['a', 'literal', 'list', 'of', 'strings']
+>>> # or more Pythonically, in this way:
+>>> li = 'a literal list of strings'.split()
+>>> li
+['a', 'literal', 'list', 'of', 'strings']
+>>> 
+>>> # we can also create lists using for loops, if statements, and append,
+>>> #   (but this is NOT the Pythonic way)
+>>> li = list()    # empty list
+>>> for el in range(10):    # from 0 inclusive to 10 exclusive  [0, 10)
+	li.append(el)
+
+	
+>>> li
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> 
+>>> li = list()
+>>> for el in range(100):
+	if (el % 5 == 0):
+		li.append(el * el)    # append the square of each multiple of 5
+
+		
+>>> li
+[0, 25, 100, 225, 400, 625, 900, 1225, 1600, 2025, 2500, 3025, 3600, 4225, 4900, 5625, 6400, 7225, 8100, 9025]
+>>> 
+>>> 
+>>> li = list()
+>>> for el in range(40):
+	if (el % 5 == 0 and (el * el) % 5 == 0):
+		li.append(el * el)
+
+		
+>>> li
+[0, 25, 100, 225, 400, 625, 900, 1225]
+>>> for el in range(40):
+	if (el % 5 == 0 and (el * el) % 5 == 1):   # only multiples of 5
+		li.append(el * el)			# whose squares are odd
+
+		
+>>> li
+[0, 25, 100, 225, 400, 625, 900, 1225]
+>>> for el in range(40):
+	if (el % 5 == 0 and (el * el) % 2 == 1):   # only multiples of 5
+		li.append(el * el)			# whose squares are odd
+>>> li
+[0, 25, 100, 225, 400, 625, 900, 1225, 25, 225, 625, 1225]
+
+
+>>> li = []
+>>> for el in range(40):
+	if (el % 5 == 0 and (el * el % 2) == 1):   # only multiples of 5
+		li.append(el * el)			# whose squares are odd
+>>> li
+[25, 225, 625, 1225]
+>>> 
+>>> 
+>>> # NOW, what is the Pythonic way to do this?  LIST COMPREHENSIONS
+>>> # last case first
+>>> li = [el * el for el in range(40) if el % 5 == 0 and el * el % 2 == 1]
+>>> li
+[25, 225, 625, 1225]
+>>> 
+>>> # now the second case
+>>> #   only the multiples of 5 up to (not including) 100
+>>> li = [el for el in range(100) if el % 5 == 0]
+>>> li
+[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+>>> 
+>>> # now the first case
+>>> #    all ints from 0 to 9 inclusive
+>>> li = [el for el in range(10)]
+>>> li
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> 
+>>> 
+>>> 
+>>> # list compehensions can also be used for conversions
+>>> li = [int(el) for el in '1 2 3 4 5'.split()]
+>>> li
+[1, 2, 3, 4, 5]
+>>> 
+>>> # and of course, when we have functions to call
+>>> from math import sqrt
+>>> li = [sqrt(el) for el in range(10)]
+>>> li
+[0.0, 1.0, 1.4142135623730951, 1.7320508075688772, 2.0, 2.23606797749979, 2.449489742783178, 2.6457513110645907, 2.8284271247461903, 3.0]
+>>> # or, if we want a more uniform formatting...
+>>> li = [round(sqrt(el), 2) for el in range(10)]
+>>> li
+[0.0, 1.0, 1.41, 1.73, 2.0, 2.24, 2.45, 2.65, 2.83, 3.0]
+>>> 
+>>> 
+>>> 
+>>> # TUPLES
+>>> # as you already noticed, lists are mutable (they can be changed;
+>>> #   they can be added to, and they can have items removed or popped
+>>> # but what if you don't need items to be added/removed to a collection?
+>>> #   then, you have a tuple
+>>> tu = ()   # an empty tuple
+>>> type(tu)
+<type 'tuple'>
+>>> len(tu)
+0
+>>> dirpub(tu)
+['count', 'index']
+>>> # !? so few public methods! Yes, because tuples are immutable.
+>>> tu = (1, 2, 3, 4, 5)    # a five-dimensional point
+>>> ihat = (1, 0, 0)
+>>> jhat = (0, 1, 0)
+>>> khat = (0, 0, 1)
+>>> # these are the three unit (length of 1) vectors in the x, y, and z axes
+>>> # like so
+>>> 
+>>> # tuples are useful when you have to return more than one value from a fn
+>>> def min_max(li):
+	return (min(li), max(li))
+
+>>> li = [el for el in range(50, 150, 10)]
+>>> min_max(li)
+(50, 140)
+>>> 
+>>> # and tuples are also useful when initializing multiple items at once
+>>> # like so
+>>> def fibo_n(n):
+	a, b = 1, 1
+	while (n > 0):
+		a, b = b, a + b
+		n -= 1
+	return a
+
+>>> fibo_n(10)
+89
+>>> fibo_n(9)
+55
+>>> fibo_n(8)
+34
+>>> fibo_n(7)
+21
+>>> fibo_(6)
+
+Traceback (most recent call last):
+  File "<pyshell#283>", line 1, in <module>
+    fibo_(6)
+NameError: name 'fibo_' is not defined
+>>> fibo_n(6)
+13
+>>> fibo_n(5)
+8
+>>> fibo_n(4)
+5
+>>> fibo_n(3)
+3
+>>> fibo_n(2)
+2
+>>> fibo_n(1)
+1
+>>> fibo_n(0)
+1
+>>> fibos = [fibo_n(el) for el in range(11)]
+>>> fibos
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+>>> 
+>>> 
+>>> # we will see how to make an immutable object in tomorrow's OOP lesson
+>>> 
+>>> 
+>>> 
+>>> # SETS
+>>> li = 'one two one three one four one five'.split()
+>>> li
+['one', 'two', 'one', 'three', 'one', 'four', 'one', 'five']
+>>> se = set(li)
+>>> se
+set(['four', 'three', 'five', 'two', 'one'])
+>>> 
+>>> # notice two things!
+>>> # (a) it is not ordered
+>>> # (b) it has no duplicates (dupes)
+>>> 
+>>> # what if we want a list of no dupes?
+>>> lise = list(se)
+>>> lise
+['four', 'three', 'five', 'two', 'one']
+>>> 
+>>> # and if we want it sorted?
+>>> lise.sort()
+>>> lise
+['five', 'four', 'one', 'three', 'two']
+>>> 
+>>> 
+>>> # what if we're playing an adventure game?
+>>> inventory = set()
+>>> inv = inventory    # aka inventory
+>>> id(inv) == id(inventory)
+True
+>>> dirpub(inv)
+['add', 'clear', 'copy', 'difference', 'difference_update', 'discard', 'intersection', 'intersection_update', 'isdisjoint', 'issubset', 'issuperset', 'pop', 'remove', 'symmetric_difference', 'symmetric_difference_update', 'union', 'update']
+>>> # NOTE: no append -- because sets are unordered
+>>> inv.add('rope')
+>>> inv.add('big mac')
+>>> inv.add('fries')
+>>> inv.add('big mac')
+>>> inv.add('flashlight')
+>>> inv.add('big mac')
+>>> inv
+set(['rope', 'big mac', 'fries', 'flashlight'])
+>>> # Note: noly ONE big mac in our inventory
+>>> 
+>>> 
+>>> 
+>>> # on to dictionaries
+>>> # syntax looks similar to sets
+>>> di = dict()   # empty dictionary
+>>> type(di)
+<type 'dict'>
+>>> len(di)
+0
+>>> dirpub(di)
+['clear', 'copy', 'fromkeys', 'get', 'has_key', 'items', 'iteritems', 'iterkeys', 'itervalues', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values', 'viewitems', 'viewkeys', 'viewvalues']
+>>> # NOTE -- in Python 3, there is no iteritems, iterkeys, and itervalues --
+>>> # just items, keys, values
+>>> 
+>>> di = { 'john' : '123-4567
+       
+SyntaxError: EOL while scanning string literal
+>>> di = { 'john' : '123-4567', 'joan': '234-5678', 'jack' : '345-6789' }
+>>> di
+{'john': '123-4567', 'joan': '234-5678', 'jack': '345-6789'}
+>>> # how do we add to a dictionary, like so
+>>> di['jim'] = '456-7890'
+>>> di
+{'jim': '456-7890', 'john': '123-4567', 'joan': '234-5678', 'jack': '345-6789'}
+>>> 
+>>> 
+>>> # what are the keys?
+>>> di.keys()
+['jim', 'john', 'joan', 'jack']
+>>> di.values()
+['456-7890', '123-4567', '234-5678', '345-6789']
+>>> di.items()
+[('jim', '456-7890'), ('john', '123-4567'), ('joan', '234-5678'), ('jack', '345-6789')]
+>>> 
+>>> # how do I iterate through the dictionary, key by key, in order, and
+>>> #   show its values ?
+>>> for k in sorted(di.keys()):
+	print(k, di[k])
+
+	
+('jack', '345-6789')
+('jim', '456-7890')
+('joan', '234-5678')
+('john', '123-4567')
+>>> 
+>>> # right justify the left col?
+>>> for k in sorted(di.keys()):
+	print('{0:>6} --- {1}'.format(k, di[k]))
+
+	
+  jack --- 345-6789
+   jim --- 456-7890
+  joan --- 234-5678
+  john --- 123-4567
+>>> # 6 is the width of the left col  > means right justify,  < means left justify
+>>> 
+>>> 
+>>> 
+>>> # finally, how do we slice a list/tuple ?
+>>> li = 'a b c d e f g h i j k l m n o p q r s t u v w x y z'.split()
+>>> li
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+>>> 
+>>> # first 10
+>>> li[:10]
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+>>> # last 10
+>>> li[-10:]
+['q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+>>> # from 10 to 20
+>>> li[10:21]
+['k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u']
+>>> # every other 3
+>>> li[::3]
+['a', 'd', 'g', 'j', 'm', 'p', 's', 'v', 'y']
+>>> # every other 3 starting at 1st index (0th is first entry remember)
+>>> li[1::3]
+['b', 'e', 'h', 'k', 'n', 'q', 't', 'w', 'z']
+>>> # every other 3 starting at 2nd index
+>>> li[2::3]
+['c', 'f', 'i', 'l', 'o', 'r', 'u', 'x']
+>>> # reverse
+>>> li[::-1]
+['z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']
+>>> 
+>>> 
+>>> # make our own slice function
+>>> def slice_fn(li, start=None, stop=None, step=None):
+	return li[start:stop:step]
+
+>>> slice_fn(li, step=-1)
+['z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a']
+>>> 
+>>> # you can test the rest
+>>> # Notice that we have DEFAULT PARAMETERS
+>>> #   and notice that None is a legal type
+>>> 
+>>> 
