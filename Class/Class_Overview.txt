@@ -58,5 +58,6 @@ Class 08:
 Class 09:
   Numpy Package
   SciPy Package
+  Matrix Operations
   I/O with Python and SQL
   MatPlot Graphics
