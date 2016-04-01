@@ -1,0 +1,62 @@
+Luke Reed
+03/31/2016
+Overview of Class Topics
+
+Class 01:
+  Introduction to Python
+  Printing
+  Commenting
+  Basic Math
+  I/O
+  Functions
+
+Class 02:
+  Reading Files
+  Writing Files
+  Copying Files
+
+Class 03:
+  Variables
+  If Loops
+  While Loops
+  Lists
+  List Operations
+
+Class 04:
+  Lists
+  Tuples
+  Dictionaries
+  List Operations
+  Slicing
+  Directories
+
+Class 05:
+  Lists
+  Tuples
+  Dictionaries
+  Generators
+  Set
+  PEP 0008 Introduction
+  Classes
+    Shapes
+
+Class 06:
+  OOP
+    Animal Classes (speakable/etc)
+    Shape Classes (color/area/perimeter/etc)
+    Beverage Decorator OOP
+
+Class 07:
+  Web Scraping
+  Error/Exception Handling
+  Divide By Zero Error Script
+
+Class 08:
+  More Web Scraping
+  Connecting to SQL Databases
+
+Class 09:
+  Numpy Package
+  SciPy Package
+  I/O with Python and SQL
+  MatPlot Graphics
