@@ -9,11 +9,25 @@ Class 01:
   Basic Math
   I/O
   Functions
+  Scripts:
+    Class_01.py              ex05_PrintingVariables.py    ex11_InputOutput.py
+    HelloWorld.py            ex06_TextStrings.py          ex12_Prompting.py
+    ex01_Printing.py         ex07_MorePrinting.py         ex13_ParametersUnpackingVariables.py
+    ex02_Commenting.py       ex08_MorePrinting.py         ex14_PromptingPassing.py
+    ex03_BasicMath.py        ex09_MorePrinting.py         ex19_Functions.py
+    ex04_Variables.py        ex10_Tabbing.py
+
 
 Class 02:
   Reading Files
   Writing Files
   Copying Files
+  Scripts:
+    Class_02.py              ex15_sample.txt              ex17_CopyFiles.py
+    HW01_Values.txt          ex16_ReadingWritingFiles.py  ex17_infile.txt
+    ex15_ReadingFiles.py     ex16_sample.txt              ex17_outfile.txt
+    foo.txt
+
 
 Class 03:
   Variables
@@ -21,6 +35,12 @@ Class 03:
   While Loops
   Lists
   List Operations
+  Scripts:
+    Class_03.py                          ex31_MakingDecisions.py      wind_sites.csv*
+    ex18_NamesVariablesCodeFunctions.py  ex32_LoopsLists.py           windspeed_inputs.txt
+    ex29_IfStatement.py                  ex33_WhileLoops.py
+    ex30_ElseIf.py                       ex38_ListOperations.py
+
 
 Class 04:
   Lists
@@ -29,6 +49,9 @@ Class 04:
   List Operations
   Slicing
   Directories
+  Scripts:
+    Class_04.py      class_notes_4_feb_2015.txt       toRoman.py
+
 
 Class 05:
   Lists
@@ -39,21 +62,39 @@ Class 05:
   PEP 0008 Introduction
   Classes
     Shapes
+  Scripts:
+    class_05.py                       ex43_classes.py        shape.py
+    ex40_Classes.py                   mystuff.py             shape_v2.py
+    ex40a_IntroOOP.py                 mystuff.pyc
+    ex43_GothonsFromPlanetPercal.py   oop.py
+
 
 Class 06:
   OOP
     Animal Classes (speakable/etc)
     Shape Classes (color/area/perimeter/etc)
     Beverage Decorator OOP
+  Scripts:
+    class_06.py
+
 
 Class 07:
   Web Scraping
   Error/Exception Handling
   Divide By Zero Error Script
+  Scripts:
+    DivByZero.py                    SimpleTextFile.txt     regex_test.py
+    FileNotFoundErrorHandling.py    WebScrape.py
+    IntegerErrorHandling.py         class_07.py
+
 
 Class 08:
   More Web Scraping
   Connecting to SQL Databases
+  Scripts:
+    BeautifulSoupWebScraper.py     SQLDBConnect.py      WebScrape3.py
+    RegexNew.py                    WebScrape2.py        class_08.py
+
 
 Class 09:
   Numpy Package
@@ -61,3 +102,6 @@ Class 09:
   Matrix Operations
   I/O with Python and SQL
   MatPlot Graphics
+  Scripts:
+    MatPlotLibExample1.py   SQLDBConnectUPDATED.py  class_09.py
+    NumPyExample1.py        TkInterExample2.py
